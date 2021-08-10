@@ -804,7 +804,6 @@ export default class ImageControl extends React.Component<
       method: 'post'
     });
     const fileField = this.props.fileField || 'file';
-    fd.append(fileField, file, (file as File).name);
 
     const idx = api.url.indexOf('?');
 
@@ -827,6 +826,7 @@ export default class ImageControl extends React.Component<
         });
     }
 
+    fd.append(fileField, file, (file as File).name);
     const env = this.props.env;
 
     if (!env || !env.fetcher) {
